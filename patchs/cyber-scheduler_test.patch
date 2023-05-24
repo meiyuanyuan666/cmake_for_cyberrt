@@ -1,0 +1,59 @@
+diff --git a/cyber/scheduler/scheduler_choreo_test.cc b/cyber/scheduler/scheduler_choreo_test.cc
+index d715d71963..c3c7742299 100644
+--- a/cyber/scheduler/scheduler_choreo_test.cc
++++ b/cyber/scheduler/scheduler_choreo_test.cc
+@@ -30,7 +30,7 @@ namespace apollo {
+ namespace cyber {
+ namespace scheduler {
+ 
+-void func() {}
++static void func() {}
+ 
+ TEST(SchedulerChoreoTest, choreo) {
+   auto processor = std::make_shared<Processor>();
+diff --git a/cyber/scheduler/scheduler_classic_test.cc b/cyber/scheduler/scheduler_classic_test.cc
+index ac51dd0e6a..380ccdacdc 100644
+--- a/cyber/scheduler/scheduler_classic_test.cc
++++ b/cyber/scheduler/scheduler_classic_test.cc
+@@ -16,6 +16,9 @@
+ 
+ #include "cyber/scheduler/policy/scheduler_classic.h"
+ 
++#include <sys/resource.h>
++#include <sys/syscall.h>
++
+ #include "gtest/gtest.h"
+ 
+ #include "cyber/base/for_each.h"
+@@ -40,7 +43,12 @@ TEST(SchedulerClassicTest, classic) {
+ 
+   // test single routine
+   auto future = Async([]() {
+-    FOR_EACH(i, 0, 20) { cyber::SleepFor(std::chrono::milliseconds(i)); }
++    AINFO << "Start task: single";
++    FOR_EACH(i, 0, 20) { 
++      pid_t tid;
++      tid = static_cast<int>(syscall(SYS_gettid));
++      AINFO << "single tid = " << tid;
++      cyber::SleepFor(std::chrono::milliseconds(i)); }
+     AINFO << "Finish task: single";
+   });
+   future.get();
+@@ -48,12 +56,14 @@ TEST(SchedulerClassicTest, classic) {
+   // test multiple routine
+   FOR_EACH(i, 0, 20) {
+     res.emplace_back(Async([i]() {
+-      FOR_EACH(time, 0, 30) { cyber::SleepFor(std::chrono::milliseconds(i)); }
++      AINFO << "Start task: " << i;
++      FOR_EACH(time, 0, 30) { std::this_thread::sleep_for(std::chrono::milliseconds(i)); }
++      AINFO << "Finish task: " << i;
+     }));
+-    AINFO << "Finish task: " << i;
+   };
+   for (auto& future : res) {
+-    future.wait_for(std::chrono::milliseconds(1000));
++    // future.wait_for(std::chrono::milliseconds(1000));
++    future.get();
+   }
+   res.clear();
+   ctx->Shutdown();

@@ -1,0 +1,102 @@
+diff --git a/cyber/record/file/record_file_integration_test.cc b/cyber/record/file/record_file_integration_test.cc
+index c4fa2f5ea8..306467b3f1 100644
+--- a/cyber/record/file/record_file_integration_test.cc
++++ b/cyber/record/file/record_file_integration_test.cc
+@@ -68,7 +68,7 @@ class CpuSchedulerLatency {
+   std::thread periodic_thread_;
+ };
+ 
+-const char kTestFile[] = "integration_test.record";
++static const char kTestFile[] = "integration_test.record";
+ 
+ TEST(RecordFileTest, SmallMessageHighThroughputOKThreadJitter) {
+   CpuSchedulerLatency cpu_jitter;
+@@ -113,13 +113,13 @@ TEST(RecordFileTest, SmallMessageHighThroughputOKThreadJitter) {
+ }  // namespace cyber
+ }  // namespace apollo
+ 
+-int main(int argc, char** argv) {
+-  testing::GTEST_FLAG(catch_exceptions) = 1;
+-  testing::InitGoogleTest(&argc, argv);
+-  google::InitGoogleLogging(argv[0]);
+-  FLAGS_logtostderr = true;
+-  const int ret_val = RUN_ALL_TESTS();
+-  google::protobuf::ShutdownProtobufLibrary();
+-  google::ShutDownCommandLineFlags();
+-  return ret_val;
+-}
++// int main(int argc, char** argv) {
++//   testing::GTEST_FLAG(catch_exceptions) = 1;
++//   testing::InitGoogleTest(&argc, argv);
++//   google::InitGoogleLogging(argv[0]);
++//   FLAGS_logtostderr = true;
++//   const int ret_val = RUN_ALL_TESTS();
++//   google::protobuf::ShutdownProtobufLibrary();
++//   google::ShutDownCommandLineFlags();
++//   return ret_val;
++// }
+diff --git a/cyber/record/file/record_file_test.cc b/cyber/record/file/record_file_test.cc
+index 0c6ce48a7c..d7cd1b46a3 100644
+--- a/cyber/record/file/record_file_test.cc
++++ b/cyber/record/file/record_file_test.cc
+@@ -37,12 +37,12 @@ using apollo::cyber::proto::Header;
+ using apollo::cyber::proto::SectionType;
+ using apollo::cyber::proto::SingleMessage;
+ 
+-constexpr char kChan1[] = "/test1";
+-constexpr char kChan2[] = "/test2";
+-constexpr char kMsgType[] = "apollo.cyber.proto.Test";
+-constexpr char kStr10B[] = "1234567890";
+-constexpr char kTestFile1[] = "record_file_test_1.record";
+-constexpr char kTestFile2[] = "record_file_test_2.record";
++static constexpr char kChan1[] = "/test1";
++static constexpr char kChan2[] = "/test2";
++static constexpr char kMsgType[] = "apollo.cyber.proto.Test";
++static constexpr char kStr10B[] = "1234567890";
++static constexpr char kTestFile1[] = "record_file_test_1.record";
++static constexpr char kTestFile2[] = "record_file_test_2.record";
+ 
+ TEST(ChunkTest, TestAll) {
+   Chunk ck;
+diff --git a/cyber/record/record_reader_test.cc b/cyber/record/record_reader_test.cc
+index fe75ced56c..a72a29766d 100644
+--- a/cyber/record/record_reader_test.cc
++++ b/cyber/record/record_reader_test.cc
+@@ -28,12 +28,12 @@ namespace record {
+ 
+ using apollo::cyber::message::RawMessage;
+ 
+-constexpr char kChannelName1[] = "/test/channel1";
+-constexpr char kMessageType1[] = "apollo.cyber.proto.Test";
+-constexpr char kProtoDesc[] = "1234567890";
+-constexpr char kStr10B[] = "1234567890";
+-constexpr char kTestFile[] = "record_reader_test.record";
+-constexpr uint32_t kMessageNum = 16;
++static constexpr char kChannelName1[] = "/test/channel1";
++static constexpr char kMessageType1[] = "apollo.cyber.proto.Test";
++static constexpr char kProtoDesc[] = "1234567890";
++static constexpr char kStr10B[] = "1234567890";
++static constexpr char kTestFile[] = "record_reader_test.record";
++static constexpr uint32_t kMessageNum = 16;
+ 
+ TEST(RecordTest, TestSingleRecordFile) {
+   RecordWriter writer;
+diff --git a/cyber/record/record_viewer_test.cc b/cyber/record/record_viewer_test.cc
+index 1a122b25b3..1de38c6930 100644
+--- a/cyber/record/record_viewer_test.cc
++++ b/cyber/record/record_viewer_test.cc
+@@ -35,10 +35,10 @@ namespace record {
+ 
+ using apollo::cyber::message::RawMessage;
+ 
+-constexpr char kChannelName1[] = "/test/channel1";
+-constexpr char kMessageType1[] = "apollo.cyber.proto.Test";
+-constexpr char kProtoDesc1[] = "1234567890";
+-constexpr char kTestFile[] = "viewer_test.record";
++static constexpr char kChannelName1[] = "/test/channel1";
++static constexpr char kMessageType1[] = "apollo.cyber.proto.Test";
++static constexpr char kProtoDesc1[] = "1234567890";
++static constexpr char kTestFile[] = "viewer_test.record";
+ 
+ static void ConstructRecord(uint64_t msg_num, uint64_t begin_time,
+                             uint64_t time_step, bool reverse = false) {

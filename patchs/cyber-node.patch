@@ -1,0 +1,81 @@
+diff --git a/cyber/node/node_channel_impl_test.cc b/cyber/node/node_channel_impl_test.cc
+index bea7daf2e5..deec3bc591 100644
+--- a/cyber/node/node_channel_impl_test.cc
++++ b/cyber/node/node_channel_impl_test.cc
+@@ -172,8 +172,8 @@ TEST(Node_Channel_ImplTest, test3) {
+ }  // namespace cyber
+ }  // namespace apollo
+ 
+-int main(int argc, char** argv) {
+-  testing::InitGoogleTest(&argc, argv);
+-  apollo::cyber::Init(argv[0]);
+-  return RUN_ALL_TESTS();
+-}
++// int main(int argc, char** argv) {
++//   testing::InitGoogleTest(&argc, argv);
++//   apollo::cyber::Init(argv[0]);
++//   return RUN_ALL_TESTS();
++// }
+diff --git a/cyber/node/reader_test.cc b/cyber/node/reader_test.cc
+index e8814d957b..18f8950e44 100644
+--- a/cyber/node/reader_test.cc
++++ b/cyber/node/reader_test.cc
+@@ -31,7 +31,7 @@ namespace reader {
+ 
+ using proto::Chatter;
+ 
+-auto callback = [](const std::shared_ptr<proto::Chatter>& msg) {
++static auto callback = [](const std::shared_ptr<proto::Chatter>& msg) {
+   AINFO << "msg size = " << msg->ByteSizeLong();
+ };
+ 
+@@ -207,8 +207,8 @@ TEST(ReaderTest, test2) {
+ }  // namespace cyber
+ }  // namespace apollo
+ 
+-int main(int argc, char** argv) {
+-  testing::InitGoogleTest(&argc, argv);
+-  apollo::cyber::Init(argv[0]);
+-  return RUN_ALL_TESTS();
+-}
++// int main(int argc, char** argv) {
++//   testing::InitGoogleTest(&argc, argv);
++//   apollo::cyber::Init(argv[0]);
++//   return RUN_ALL_TESTS();
++// }
+diff --git a/cyber/node/writer_reader_test.cc b/cyber/node/writer_reader_test.cc
+index 3e6b06f250..ad5f2e561a 100644
+--- a/cyber/node/writer_reader_test.cc
++++ b/cyber/node/writer_reader_test.cc
+@@ -298,8 +298,8 @@ TEST(WriterReaderTest, user_defined_message) {
+ }  // namespace cyber
+ }  // namespace apollo
+ 
+-int main(int argc, char** argv) {
+-  testing::InitGoogleTest(&argc, argv);
+-  apollo::cyber::Init(argv[0]);
+-  return RUN_ALL_TESTS();
+-}
++// int main(int argc, char** argv) {
++//   testing::InitGoogleTest(&argc, argv);
++//   apollo::cyber::Init(argv[0]);
++//   return RUN_ALL_TESTS();
++// }
+diff --git a/cyber/node/writer_test.cc b/cyber/node/writer_test.cc
+index ec9c99c903..903b37a11a 100644
+--- a/cyber/node/writer_test.cc
++++ b/cyber/node/writer_test.cc
+@@ -77,8 +77,8 @@ TEST(WriterTest, test2) {
+ }  // namespace cyber
+ }  // namespace apollo
+ 
+-int main(int argc, char** argv) {
+-  testing::InitGoogleTest(&argc, argv);
+-  apollo::cyber::Init(argv[0]);
+-  return RUN_ALL_TESTS();
+-}
++// int main(int argc, char** argv) {
++//   testing::InitGoogleTest(&argc, argv);
++//   apollo::cyber::Init(argv[0]);
++//   return RUN_ALL_TESTS();
++// }

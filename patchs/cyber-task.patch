@@ -1,0 +1,12 @@
+diff --git a/cyber/task/task_test.cc b/cyber/task/task_test.cc
+index e6b989a3c7..f6b1df6ce8 100644
+--- a/cyber/task/task_test.cc
++++ b/cyber/task/task_test.cc
+@@ -48,6 +48,7 @@ void Task1() { ADEBUG << "Task1 running"; }
+ 
+ void Task2(const Message& input) {
+   std::this_thread::sleep_for(std::chrono::milliseconds(10));
++  // cyber::SleepFor(std::chrono::milliseconds(10));
+   ADEBUG << "Task2 running";
+ }
+ 

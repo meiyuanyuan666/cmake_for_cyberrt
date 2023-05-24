@@ -1,0 +1,1127 @@
+start unit test in ./
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 24 tests from 10 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from AtomicHashMapTest
+[ RUN      ] AtomicHashMapTest.int_int
+[       OK ] AtomicHashMapTest.int_int (0 ms)
+[ RUN      ] AtomicHashMapTest.int_str
+[       OK ] AtomicHashMapTest.int_str (0 ms)
+[ RUN      ] AtomicHashMapTest.concurrency
+[       OK ] AtomicHashMapTest.concurrency (1183 ms)
+[----------] 3 tests from AtomicHashMapTest (1184 ms total)
+
+[----------] 2 tests from ReentrantRWLockTest
+[ RUN      ] ReentrantRWLockTest.read_lock
+[       OK ] ReentrantRWLockTest.read_lock (0 ms)
+[ RUN      ] ReentrantRWLockTest.write_lock
+[       OK ] ReentrantRWLockTest.write_lock (0 ms)
+[----------] 2 tests from ReentrantRWLockTest (1 ms total)
+
+[----------] 8 tests from BoundedQueueTest
+[ RUN      ] BoundedQueueTest.Enqueue
+[       OK ] BoundedQueueTest.Enqueue (0 ms)
+[ RUN      ] BoundedQueueTest.Dequeue
+[       OK ] BoundedQueueTest.Dequeue (0 ms)
+[ RUN      ] BoundedQueueTest.concurrency
+[       OK ] BoundedQueueTest.concurrency (214 ms)
+[ RUN      ] BoundedQueueTest.WaitDequeue
+[       OK ] BoundedQueueTest.WaitDequeue (0 ms)
+[ RUN      ] BoundedQueueTest.block_wait
+[       OK ] BoundedQueueTest.block_wait (0 ms)
+[ RUN      ] BoundedQueueTest.yield_wait
+[       OK ] BoundedQueueTest.yield_wait (0 ms)
+[ RUN      ] BoundedQueueTest.spin_wait
+[       OK ] BoundedQueueTest.spin_wait (0 ms)
+[ RUN      ] BoundedQueueTest.busy_wait
+[       OK ] BoundedQueueTest.busy_wait (0 ms)
+[----------] 8 tests from BoundedQueueTest (216 ms total)
+
+[----------] 1 test from ForEachTest
+[ RUN      ] ForEachTest.base
+[       OK ] ForEachTest.base (0 ms)
+[----------] 1 test from ForEachTest (0 ms total)
+
+[----------] 4 tests from CCObjectPoolTest
+[ RUN      ] CCObjectPoolTest.base
+[       OK ] CCObjectPoolTest.base (0 ms)
+[ RUN      ] CCObjectPoolTest.multi_thread
+[       OK ] CCObjectPoolTest.multi_thread (395 ms)
+[ RUN      ] CCObjectPoolTest.construct_object
+[       OK ] CCObjectPoolTest.construct_object (0 ms)
+[ RUN      ] CCObjectPoolTest.construct_all
+[       OK ] CCObjectPoolTest.construct_all (0 ms)
+[----------] 4 tests from CCObjectPoolTest (396 ms total)
+
+[----------] 1 test from ObjectPoolTest
+[ RUN      ] ObjectPoolTest.get_object
+[       OK ] ObjectPoolTest.get_object (0 ms)
+[----------] 1 test from ObjectPoolTest (0 ms total)
+
+[----------] 2 tests from SlotTest
+[ RUN      ] SlotTest.zero_input_param
+[       OK ] SlotTest.zero_input_param (0 ms)
+[ RUN      ] SlotTest.two_input_params
+[       OK ] SlotTest.two_input_params (0 ms)
+[----------] 2 tests from SlotTest (0 ms total)
+
+[----------] 1 test from ConnectionTest
+[ RUN      ] ConnectionTest.null_signal
+[       OK ] ConnectionTest.null_signal (0 ms)
+[----------] 1 test from ConnectionTest (0 ms total)
+
+[----------] 1 test from SignalTest
+[ RUN      ] SignalTest.module
+[       OK ] SignalTest.module (0 ms)
+[----------] 1 test from SignalTest (0 ms total)
+
+[----------] 1 test from UnboundedQueueTest
+[ RUN      ] UnboundedQueueTest.all_in_one
+[       OK ] UnboundedQueueTest.all_in_one (0 ms)
+[----------] 1 test from UnboundedQueueTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 24 tests from 10 test suites ran. (1799 ms total)
+[  PASSED  ] 24 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from BlockerTest
+[ RUN      ] BlockerTest.blocker_manager_test
+[       OK ] BlockerTest.blocker_manager_test (0 ms)
+[ RUN      ] BlockerTest.blocker_intra_writer
+[       OK ] BlockerTest.blocker_intra_writer (0 ms)
+[ RUN      ] BlockerTest.blocker_intra_reader
+[       OK ] BlockerTest.blocker_intra_reader (0 ms)
+[----------] 3 tests from BlockerTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (0 ms total)
+[  PASSED  ] 3 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 11 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 6 tests from FileTest
+[ RUN      ] FileTest.proto_set_get_test
+[       OK ] FileTest.proto_set_get_test (1 ms)
+[ RUN      ] FileTest.file_utils_test
+[       OK ] FileTest.file_utils_test (7 ms)
+[ RUN      ] FileTest.ListSubPaths
+[       OK ] FileTest.ListSubPaths (0 ms)
+[ RUN      ] FileTest.Glob
+/home/zz/apollo/cyber/common/file_test.cc:117: Failure
+Value of: Glob("/apollo")
+Expected: has 1 element that is equal to "/apollo"
+  Actual: {}
+/home/zz/apollo/cyber/common/file_test.cc:118: Failure
+Value of: Glob("/apol?o")
+Expected: has 1 element that is equal to "/apollo"
+  Actual: {}
+/home/zz/apollo/cyber/common/file_test.cc:125: Failure
+Value of: Glob("/apol?o/modules/p*")
+Expected: (contains at least one element that is equal to "/apollo/modules/perception") and (contains at least one element that is equal to "/apollo/modules/planning") and (contains at least one element that is equal to "/apollo/modules/prediction")
+  Actual: {}
+[  FAILED  ] FileTest.Glob (0 ms)
+[ RUN      ] FileTest.GetAbsolutePath
+[       OK ] FileTest.GetAbsolutePath (0 ms)
+[ RUN      ] FileTest.GetFileName
+[       OK ] FileTest.GetFileName (0 ms)
+[----------] 6 tests from FileTest (9 ms total)
+
+[----------] 1 test from LogTest
+[ RUN      ] LogTest.TestAll
+[       OK ] LogTest.TestAll (0 ms)
+[----------] 1 test from LogTest (0 ms total)
+
+[----------] 2 tests from EnvironmentTest
+[ RUN      ] EnvironmentTest.get_env
+[       OK ] EnvironmentTest.get_env (0 ms)
+[ RUN      ] EnvironmentTest.work_root
+[       OK ] EnvironmentTest.work_root (0 ms)
+[----------] 2 tests from EnvironmentTest (0 ms total)
+
+[----------] 2 tests from MacrosTest
+[ RUN      ] MacrosTest.has_shut_down_test
+[       OK ] MacrosTest.has_shut_down_test (0 ms)
+[ RUN      ] MacrosTest.shut_down_test
+[       OK ] MacrosTest.shut_down_test (0 ms)
+[----------] 2 tests from MacrosTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 4 test suites ran. (9 ms total)
+[  PASSED  ] 10 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] FileTest.Glob
+
+ 1 FAILED TEST
+[==========] Running 7 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 6 tests from ClassLoaderTest
+[ RUN      ] ClassLoaderTest.createClassObj
+I am Rect
+[       OK ] ClassLoaderTest.createClassObj (3 ms)
+[ RUN      ] ClassLoaderTest.loadLibCounts
+[       OK ] ClassLoaderTest.loadLibCounts (2 ms)
+[ RUN      ] ClassLoaderTest.multiTimesLoadunload
+[       OK ] ClassLoaderTest.multiTimesLoadunload (10 ms)
+[ RUN      ] ClassLoaderTest.createObjThreadSafety
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Circle
+I am Circle
+I am Circle
+I am Circle
+I am Rect
+I am Star
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Circle
+I am Circle
+I am CircleI am Circle
+I am Circle
+I am TriangleI am Circle
+
+I am Circle
+I am Circle
+I am Rect
+I am Star
+I am Circle
+I am Rect
+I am Circle
+I am Circle
+I am Rect
+I am Rect
+I am Circle
+I am Rect
+I am Star
+I am Circle
+I am Circle
+I am Rect
+I am Star
+I am Circle
+
+I am Rect
+I am Circle
+I am CircleI am Triangle
+
+I am Star
+I am CircleI am Circle
+I am Rect
+I am Rect
+I am CircleI am Rect
+I am StarI am Rect
+I am Star
+I am Triangle
+
+I am Triangle
+I am CircleI am Triangle
+I am Rect
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Circle
+I am Rect
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am StarI am Rect
+
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am CircleI am Circle
+I am StarI am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am CircleI am Circle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Rect
+I am Star
+I am Rect
+
+I am Rect
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Star
+I am Triangle
+I am CircleI am Triangle
+
+I am Star
+I am Triangle
+I am Circle
+I am RectI am Rect
+I am Star
+I am Triangle
+I am Star
+I am Triangle
+
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am RectI am Rect
+I am CircleI am Star
+I am Triangle
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am CircleI am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+
+I am CircleI am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am CircleI am Rect
+
+I am Star
+I am Triangle
+
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+I am Star
+I am Triangle
+I am Star
+I am RectI am Rect
+I am Star
+I am StarI am Triangle
+I am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+
+I am Star
+I am Triangle
+I am Circle
+
+I am Rect
+I am Star
+I am CircleI am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+
+I am Rect
+I am Star
+I am Triangle
+I am Rect
+I am Star
+I am Triangle
+I am Triangle
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+I am Circle
+I am Rect
+I am Star
+I am Triangle
+[       OK ] ClassLoaderTest.createObjThreadSafety (43 ms)
+[ RUN      ] ClassLoaderTest.loadLibThreadSafety
+[       OK ] ClassLoaderTest.loadLibThreadSafety (30 ms)
+[ RUN      ] ClassLoaderTest.util_test
+[       OK ] ClassLoaderTest.util_test (0 ms)
+[----------] 6 tests from ClassLoaderTest (91 ms total)
+
+[----------] 1 test from ClassLoaderManagerTest
+[ RUN      ] ClassLoaderManagerTest.testClassLoaderManager
+I am Rect
+I am Circle
+I am Apple
+I am Rect
+I am Circle
+I am Apple
+I am Pear!!!
+[       OK ] ClassLoaderManagerTest.testClassLoaderManager (2 ms)
+[----------] 1 test from ClassLoaderManagerTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 2 test suites ran. (94 ms total)
+[  PASSED  ] 7 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 2 tests from 2 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from TimerComponent
+[ RUN      ] TimerComponent.timertest
+[       OK ] TimerComponent.timertest (24 ms)
+[----------] 1 test from TimerComponent (24 ms total)
+
+[----------] 1 test from TimerComponentFalse
+[ RUN      ] TimerComponentFalse.timerfail
+[       OK ] TimerComponentFalse.timerfail (0 ms)
+[----------] 1 test from TimerComponentFalse (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 2 test suites ran. (24 ms total)
+[  PASSED  ] 2 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from Croutine
+[ RUN      ] Croutine.croutinetest
+[       OK ] Croutine.croutinetest (21 ms)
+[----------] 1 test from Croutine (21 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (21 ms total)
+[  PASSED  ] 1 test.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 13 tests from 5 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from CacheBufferTest
+[ RUN      ] CacheBufferTest.cache_buffer_test
+[       OK ] CacheBufferTest.cache_buffer_test (0 ms)
+[----------] 1 test from CacheBufferTest (0 ms total)
+
+[----------] 3 tests from ChannelBufferTest
+[ RUN      ] ChannelBufferTest.Fetch
+[       OK ] ChannelBufferTest.Fetch (0 ms)
+[ RUN      ] ChannelBufferTest.Latest
+[       OK ] ChannelBufferTest.Latest (0 ms)
+[ RUN      ] ChannelBufferTest.FetchMulti
+[       OK ] ChannelBufferTest.FetchMulti (0 ms)
+[----------] 3 tests from ChannelBufferTest (1 ms total)
+
+[----------] 2 tests from DataDispatcher
+[ RUN      ] DataDispatcher.AddBuffer
+[       OK ] DataDispatcher.AddBuffer (0 ms)
+[ RUN      ] DataDispatcher.Dispatch
+[       OK ] DataDispatcher.Dispatch (0 ms)
+[----------] 2 tests from DataDispatcher (0 ms total)
+
+[----------] 3 tests from AllLatestTest
+[ RUN      ] AllLatestTest.two_channels
+[       OK ] AllLatestTest.two_channels (0 ms)
+[ RUN      ] AllLatestTest.three_channels
+[       OK ] AllLatestTest.three_channels (0 ms)
+[ RUN      ] AllLatestTest.four_channels
+[       OK ] AllLatestTest.four_channels (0 ms)
+[----------] 3 tests from AllLatestTest (0 ms total)
+
+[----------] 4 tests from DataVisitorTest
+[ RUN      ] DataVisitorTest.one_channel
+[       OK ] DataVisitorTest.one_channel (0 ms)
+[ RUN      ] DataVisitorTest.two_channel
+[       OK ] DataVisitorTest.two_channel (0 ms)
+[ RUN      ] DataVisitorTest.three_channel
+[       OK ] DataVisitorTest.three_channel (0 ms)
+[ RUN      ] DataVisitorTest.four_channel
+[       OK ] DataVisitorTest.four_channel (0 ms)
+[----------] 4 tests from DataVisitorTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 13 tests from 5 test suites ran. (3 ms total)
+[  PASSED  ] 13 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 7 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from AsyncLoggerTest
+[ RUN      ] AsyncLoggerTest.WriteAndFlush
+[       OK ] AsyncLoggerTest.WriteAndFlush (0 ms)
+[ RUN      ] AsyncLoggerTest.SetLoggerToGlog
+[       OK ] AsyncLoggerTest.SetLoggerToGlog (2 ms)
+[----------] 2 tests from AsyncLoggerTest (3 ms total)
+
+[----------] 1 test from LogFileObjectTest
+[ RUN      ] LogFileObjectTest.init_and_write
+[       OK ] LogFileObjectTest.init_and_write (0 ms)
+[----------] 1 test from LogFileObjectTest (0 ms total)
+
+[----------] 4 tests from LoggerUtilTest
+[ RUN      ] LoggerUtilTest.GetHostName
+[       OK ] LoggerUtilTest.GetHostName (0 ms)
+[ RUN      ] LoggerUtilTest.FindModuleName
+[       OK ] LoggerUtilTest.FindModuleName (0 ms)
+[ RUN      ] LoggerUtilTest.MaxLogSize
+[       OK ] LoggerUtilTest.MaxLogSize (0 ms)
+[ RUN      ] LoggerUtilTest.PidHasChanged
+[       OK ] LoggerUtilTest.PidHasChanged (0 ms)
+[----------] 4 tests from LoggerUtilTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 3 test suites ran. (4 ms total)
+[  PASSED  ] 7 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 23 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 7 tests from MessageHeaderTest
+[ RUN      ] MessageHeaderTest.magic_num
+[       OK ] MessageHeaderTest.magic_num (0 ms)
+[ RUN      ] MessageHeaderTest.seq
+[       OK ] MessageHeaderTest.seq (0 ms)
+[ RUN      ] MessageHeaderTest.timestamp_ns
+[       OK ] MessageHeaderTest.timestamp_ns (0 ms)
+[ RUN      ] MessageHeaderTest.src_id
+[       OK ] MessageHeaderTest.src_id (0 ms)
+[ RUN      ] MessageHeaderTest.dst_id
+[       OK ] MessageHeaderTest.dst_id (0 ms)
+[ RUN      ] MessageHeaderTest.msg_type
+[       OK ] MessageHeaderTest.msg_type (0 ms)
+[ RUN      ] MessageHeaderTest.content_size
+[       OK ] MessageHeaderTest.content_size (0 ms)
+[----------] 7 tests from MessageHeaderTest (0 ms total)
+
+[----------] 9 tests from MessageTraitsTest
+[ RUN      ] MessageTraitsTest.type_trait
+[       OK ] MessageTraitsTest.type_trait (0 ms)
+[ RUN      ] MessageTraitsTest.byte_size
+[       OK ] MessageTraitsTest.byte_size (0 ms)
+[ RUN      ] MessageTraitsTest.serialize_to_array
+[       OK ] MessageTraitsTest.serialize_to_array (0 ms)
+[ RUN      ] MessageTraitsTest.serialize_to_string
+[       OK ] MessageTraitsTest.serialize_to_string (0 ms)
+[ RUN      ] MessageTraitsTest.parse_from_array
+[       OK ] MessageTraitsTest.parse_from_array (0 ms)
+[ RUN      ] MessageTraitsTest.parse_from_string
+[       OK ] MessageTraitsTest.parse_from_string (0 ms)
+[ RUN      ] MessageTraitsTest.serialize_parse_hc
+[       OK ] MessageTraitsTest.serialize_parse_hc (0 ms)
+[ RUN      ] MessageTraitsTest.message_type
+[       OK ] MessageTraitsTest.message_type (0 ms)
+[ RUN      ] MessageTraitsTest.descriptor
+[       OK ] MessageTraitsTest.descriptor (0 ms)
+[----------] 9 tests from MessageTraitsTest (0 ms total)
+
+[----------] 1 test from ProtobufFactory
+[ RUN      ] ProtobufFactory.register_and_generate
+[       OK ] ProtobufFactory.register_and_generate (0 ms)
+[----------] 1 test from ProtobufFactory (0 ms total)
+
+[----------] 6 tests from RawMessageTest
+[ RUN      ] RawMessageTest.constructor
+[       OK ] RawMessageTest.constructor (0 ms)
+[ RUN      ] RawMessageTest.serialize_to_array
+[       OK ] RawMessageTest.serialize_to_array (0 ms)
+[ RUN      ] RawMessageTest.serialize_to_string
+[       OK ] RawMessageTest.serialize_to_string (0 ms)
+[ RUN      ] RawMessageTest.parse_from_string
+[       OK ] RawMessageTest.parse_from_string (0 ms)
+[ RUN      ] RawMessageTest.parse_from_array
+[       OK ] RawMessageTest.parse_from_array (0 ms)
+[ RUN      ] RawMessageTest.message_type
+[       OK ] RawMessageTest.message_type (0 ms)
+[----------] 6 tests from RawMessageTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 23 tests from 4 test suites ran. (2 ms total)
+[  PASSED  ] 23 tests.
+[==========] Running 14 tests from 5 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from Node_Channel_ImplTest
+[ RUN      ] Node_Channel_ImplTest.test1
+[       OK ] Node_Channel_ImplTest.test1 (7 ms)
+[ RUN      ] Node_Channel_ImplTest.test2
+[       OK ] Node_Channel_ImplTest.test2 (6 ms)
+[ RUN      ] Node_Channel_ImplTest.test3
+[       OK ] Node_Channel_ImplTest.test3 (10 ms)
+[----------] 3 tests from Node_Channel_ImplTest (25 ms total)
+
+[----------] 1 test from NodeTest
+[ RUN      ] NodeTest.cases
+[       OK ] NodeTest.cases (26 ms)
+[----------] 1 test from NodeTest (26 ms total)
+
+[----------] 2 tests from ReaderTest
+[ RUN      ] ReaderTest.test1
+[       OK ] ReaderTest.test1 (0 ms)
+[ RUN      ] ReaderTest.test2
+[       OK ] ReaderTest.test2 (0 ms)
+[----------] 2 tests from ReaderTest (0 ms total)
+
+[----------] 6 tests from WriterReaderTest
+[ RUN      ] WriterReaderTest.constructor
+[       OK ] WriterReaderTest.constructor (1 ms)
+[ RUN      ] WriterReaderTest.init_and_shutdown
+[       OK ] WriterReaderTest.init_and_shutdown (0 ms)
+[ RUN      ] WriterReaderTest.messaging
+[       OK ] WriterReaderTest.messaging (501 ms)
+[ RUN      ] WriterReaderTest.observe
+[       OK ] WriterReaderTest.observe (12 ms)
+[ RUN      ] WriterReaderTest.get_delay_sec
+[       OK ] WriterReaderTest.get_delay_sec (1001 ms)
+[ RUN      ] WriterReaderTest.user_defined_message
+[       OK ] WriterReaderTest.user_defined_message (31 ms)
+[----------] 6 tests from WriterReaderTest (1548 ms total)
+
+[----------] 2 tests from WriterTest
+[ RUN      ] WriterTest.test1
+[       OK ] WriterTest.test1 (0 ms)
+[ RUN      ] WriterTest.test2
+[       OK ] WriterTest.test2 (0 ms)
+[----------] 2 tests from WriterTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 14 tests from 5 test suites ran. (1603 ms total)
+[  PASSED  ] 14 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 18 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from ParameterClientTest
+[ RUN      ] ParameterClientTest.set_parameter
+[       OK ] ParameterClientTest.set_parameter (5146 ms)
+[ RUN      ] ParameterClientTest.get_parameter
+[       OK ] ParameterClientTest.get_parameter (5004 ms)
+[ RUN      ] ParameterClientTest.list_parameter
+[       OK ] ParameterClientTest.list_parameter (5004 ms)
+[----------] 3 tests from ParameterClientTest (15156 ms total)
+
+[----------] 3 tests from ParameterServerTest
+[ RUN      ] ParameterServerTest.set_parameter
+[       OK ] ParameterServerTest.set_parameter (1 ms)
+[ RUN      ] ParameterServerTest.get_parameter
+[       OK ] ParameterServerTest.get_parameter (1 ms)
+[ RUN      ] ParameterServerTest.list_parameter
+[       OK ] ParameterServerTest.list_parameter (0 ms)
+[----------] 3 tests from ParameterServerTest (3 ms total)
+
+[----------] 12 tests from ParameterTest
+[ RUN      ] ParameterTest.constructors
+[       OK ] ParameterTest.constructors (0 ms)
+[ RUN      ] ParameterTest.from_pb
+[       OK ] ParameterTest.from_pb (0 ms)
+[ RUN      ] ParameterTest.to_pb
+[       OK ] ParameterTest.to_pb (0 ms)
+[ RUN      ] ParameterTest.type
+[       OK ] ParameterTest.type (0 ms)
+[ RUN      ] ParameterTest.type_name
+[       OK ] ParameterTest.type_name (0 ms)
+[ RUN      ] ParameterTest.name
+[       OK ] ParameterTest.name (0 ms)
+[ RUN      ] ParameterTest.as_bool
+[       OK ] ParameterTest.as_bool (0 ms)
+[ RUN      ] ParameterTest.as_int
+[       OK ] ParameterTest.as_int (0 ms)
+[ RUN      ] ParameterTest.as_double
+[       OK ] ParameterTest.as_double (0 ms)
+[ RUN      ] ParameterTest.AsString
+[       OK ] ParameterTest.AsString (0 ms)
+[ RUN      ] ParameterTest.value
+[       OK ] ParameterTest.value (0 ms)
+[ RUN      ] ParameterTest.debug_string
+[       OK ] ParameterTest.debug_string (0 ms)
+[----------] 12 tests from ParameterTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 18 tests from 3 test suites ran. (15161 ms total)
+[  PASSED  ] 18 tests.
+[==========] Running 11 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from ChunkTest
+[ RUN      ] ChunkTest.TestAll
+[       OK ] ChunkTest.TestAll (0 ms)
+[----------] 1 test from ChunkTest (0 ms total)
+
+[----------] 4 tests from RecordFileTest
+[ RUN      ] RecordFileTest.TestOneMessageFile
+[       OK ] RecordFileTest.TestOneMessageFile (101 ms)
+[ RUN      ] RecordFileTest.TestOneChunkFile
+[       OK ] RecordFileTest.TestOneChunkFile (101 ms)
+[ RUN      ] RecordFileTest.TestIndex
+[       OK ] RecordFileTest.TestIndex (101 ms)
+[ RUN      ] RecordFileTest.SmallMessageHighThroughputOKThreadJitter
+[       OK ] RecordFileTest.SmallMessageHighThroughputOKThreadJitter (10575 ms)
+[----------] 4 tests from RecordFileTest (10880 ms total)
+
+[----------] 6 tests from RecordTest
+[ RUN      ] RecordTest.TestSingleRecordFile
+[       OK ] RecordTest.TestSingleRecordFile (105 ms)
+[ RUN      ] RecordTest.TestReaderOrder
+[       OK ] RecordTest.TestReaderOrder (103 ms)
+[ RUN      ] RecordTest.iterator_test
+[       OK ] RecordTest.iterator_test (103 ms)
+[ RUN      ] RecordTest.iterator_test_reverse
+[       OK ] RecordTest.iterator_test_reverse (102 ms)
+[ RUN      ] RecordTest.filter_test
+[       OK ] RecordTest.filter_test (104 ms)
+[ RUN      ] RecordTest.mult_iterator_test
+[       OK ] RecordTest.mult_iterator_test (102 ms)
+[----------] 6 tests from RecordTest (622 ms total)
+
+[----------] Global test environment tear-down
+[==========] 11 tests from 3 test suites ran. (11503 ms total)
+[  PASSED  ] 11 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 7 tests from 4 test suites.
+[----------] Global test environment set-up.
+[----------] 3 tests from SchedulerTest
+[ RUN      ] SchedulerTest.create_task
+[       OK ] SchedulerTest.create_task (125 ms)
+[ RUN      ] SchedulerTest.notify_task
+[       OK ] SchedulerTest.notify_task (0 ms)
+[ RUN      ] SchedulerTest.set_inner_thread_attr
+[       OK ] SchedulerTest.set_inner_thread_attr (8024 ms)
+[----------] 3 tests from SchedulerTest (8150 ms total)
+
+[----------] 1 test from ProcessorTest
+[ RUN      ] ProcessorTest.all
+[       OK ] ProcessorTest.all (22 ms)
+[----------] 1 test from ProcessorTest (23 ms total)
+
+[----------] 2 tests from PinThreadTest
+[ RUN      ] PinThreadTest.parse_cpuset
+[       OK ] PinThreadTest.parse_cpuset (0 ms)
+[ RUN      ] PinThreadTest.affinity
+[       OK ] PinThreadTest.affinity (2 ms)
+[----------] 2 tests from PinThreadTest (2 ms total)
+
+[----------] 1 test from pin_thread_test
+[ RUN      ] pin_thread_test.sched_policy
+[       OK ] pin_thread_test.sched_policy (20 ms)
+[----------] 1 test from pin_thread_test (20 ms total)
+
+[----------] Global test environment tear-down
+[==========] 7 tests from 4 test suites ran. (8197 ms total)
+[  PASSED  ] 7 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 29 tests from 8 test suites.
+[----------] Global test environment set-up.
+[----------] 2 tests from TopologyTest
+[ RUN      ] TopologyTest.add_and_remove_change_listener
+[       OK ] TopologyTest.add_and_remove_change_listener (13 ms)
+[ RUN      ] TopologyTest.get_manager
+[       OK ] TopologyTest.get_manager (0 ms)
+[----------] 2 tests from TopologyTest (13 ms total)
+
+[----------] 3 tests from GraphTest
+[ RUN      ] GraphTest.vertice
+[       OK ] GraphTest.vertice (0 ms)
+[ RUN      ] GraphTest.edge
+[       OK ] GraphTest.edge (0 ms)
+[ RUN      ] GraphTest.graph
+[       OK ] GraphTest.graph (0 ms)
+[----------] 3 tests from GraphTest (0 ms total)
+
+[----------] 1 test from MultiValueWarehouseTest
+[ RUN      ] MultiValueWarehouseTest.test1
+[       OK ] MultiValueWarehouseTest.test1 (0 ms)
+[----------] 1 test from MultiValueWarehouseTest (0 ms total)
+
+[----------] 1 test from SingleValueWarehouseTest
+[ RUN      ] SingleValueWarehouseTest.test1
+[       OK ] SingleValueWarehouseTest.test1 (0 ms)
+[----------] 1 test from SingleValueWarehouseTest (0 ms total)
+
+[----------] 5 tests from RoleTest
+[ RUN      ] RoleTest.constructor_getter_setter
+[       OK ] RoleTest.constructor_getter_setter (0 ms)
+[ RUN      ] RoleTest.is_earlier_than
+[       OK ] RoleTest.is_earlier_than (0 ms)
+[ RUN      ] RoleTest.rolebase_match
+[       OK ] RoleTest.rolebase_match (0 ms)
+[ RUN      ] RoleTest.rolewriter_match
+[       OK ] RoleTest.rolewriter_match (0 ms)
+[ RUN      ] RoleTest.roleserver_match
+[       OK ] RoleTest.roleserver_match (0 ms)
+[----------] 5 tests from RoleTest (0 ms total)
+
+[----------] 9 tests from ChannelManagerTest
+[ RUN      ] ChannelManagerTest.get_channel_names
+[       OK ] ChannelManagerTest.get_channel_names (0 ms)
+[ RUN      ] ChannelManagerTest.get_proto_desc
+[       OK ] ChannelManagerTest.get_proto_desc (0 ms)
+[ RUN      ] ChannelManagerTest.has_writer
+[       OK ] ChannelManagerTest.has_writer (0 ms)
+[ RUN      ] ChannelManagerTest.get_writers_attr
+[       OK ] ChannelManagerTest.get_writers_attr (1 ms)
+[ RUN      ] ChannelManagerTest.has_reader
+[       OK ] ChannelManagerTest.has_reader (0 ms)
+[ RUN      ] ChannelManagerTest.get_readers_attr
+[       OK ] ChannelManagerTest.get_readers_attr (1 ms)
+[ RUN      ] ChannelManagerTest.change
+[       OK ] ChannelManagerTest.change (0 ms)
+[ RUN      ] ChannelManagerTest.get_upstream_downstream
+[       OK ] ChannelManagerTest.get_upstream_downstream (1 ms)
+[ RUN      ] ChannelManagerTest.is_message_type_matching
+[       OK ] ChannelManagerTest.is_message_type_matching (0 ms)
+[----------] 9 tests from ChannelManagerTest (7 ms total)
+
+[----------] 5 tests from NodeManagerTest
+[ RUN      ] NodeManagerTest.node_change
+[       OK ] NodeManagerTest.node_change (1 ms)
+[ RUN      ] NodeManagerTest.topo_module_leave
+[       OK ] NodeManagerTest.topo_module_leave (0 ms)
+[ RUN      ] NodeManagerTest.add_and_remove_change_listener
+[       OK ] NodeManagerTest.add_and_remove_change_listener (0 ms)
+[ RUN      ] NodeManagerTest.has_node
+[       OK ] NodeManagerTest.has_node (0 ms)
+[ RUN      ] NodeManagerTest.get_nodes
+[       OK ] NodeManagerTest.get_nodes (0 ms)
+[----------] 5 tests from NodeManagerTest (2 ms total)
+
+[----------] 3 tests from ServiceManagerTest
+[ RUN      ] ServiceManagerTest.server_operation
+[       OK ] ServiceManagerTest.server_operation (1 ms)
+[ RUN      ] ServiceManagerTest.client_operation
+[       OK ] ServiceManagerTest.client_operation (0 ms)
+[ RUN      ] ServiceManagerTest.topo_module_leave
+[       OK ] ServiceManagerTest.topo_module_leave (0 ms)
+[----------] 3 tests from ServiceManagerTest (2 ms total)
+
+[----------] Global test environment tear-down
+[==========] 29 tests from 8 test suites ran. (25 ms total)
+[  PASSED  ] 29 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 1 test from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 1 test from SysMoTest
+[ RUN      ] SysMoTest.cases
+[       OK ] SysMoTest.cases (328 ms)
+[----------] 1 test from SysMoTest (328 ms total)
+
+[----------] Global test environment tear-down
+[==========] 1 test from 1 test suite ran. (328 ms total)
+[  PASSED  ] 1 test.
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from AsyncTest
+[ RUN      ] AsyncTest.create_task
+[       OK ] AsyncTest.create_task (11 ms)
+[ RUN      ] AsyncTest.batch_run
+[       OK ] AsyncTest.batch_run (0 ms)
+[ RUN      ] AsyncTest.run_member_function
+[       OK ] AsyncTest.run_member_function (0 ms)
+[----------] 3 tests from AsyncTest (11 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (11 ms total)
+[  PASSED  ] 3 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 9 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 5 tests from TimeTest
+[ RUN      ] TimeTest.constructor
+[       OK ] TimeTest.constructor (0 ms)
+[ RUN      ] TimeTest.operators
+[       OK ] TimeTest.operators (0 ms)
+[ RUN      ] TimeTest.to_string
+2018-07-10 20:21:51.123456789
+2018-07-10 20:21:51.000006789
+[       OK ] TimeTest.to_string (0 ms)
+[ RUN      ] TimeTest.now
+Time Now: 2022-06-27 18:00:36.487041827
+[       OK ] TimeTest.now (0 ms)
+[ RUN      ] TimeTest.is_zero
+[       OK ] TimeTest.is_zero (0 ms)
+[----------] 5 tests from TimeTest (0 ms total)
+
+[----------] 3 tests from DurationTest
+[ RUN      ] DurationTest.constructor
+[       OK ] DurationTest.constructor (0 ms)
+[ RUN      ] DurationTest.operators
+[       OK ] DurationTest.operators (0 ms)
+[ RUN      ] DurationTest.is_zero
+[       OK ] DurationTest.is_zero (0 ms)
+[----------] 3 tests from DurationTest (0 ms total)
+
+[----------] 1 test from Clock
+[ RUN      ] Clock.MockTime
+[       OK ] Clock.MockTime (1 ms)
+[----------] 1 test from Clock (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 9 tests from 3 test suites ran. (2 ms total)
+[  PASSED  ] 9 tests.
+[==========] Running 4 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 4 tests from TimerTest
+[ RUN      ] TimerTest.one_shot
+[       OK ] TimerTest.one_shot (591 ms)
+[ RUN      ] TimerTest.cycle
+[       OK ] TimerTest.cycle (3009 ms)
+[ RUN      ] TimerTest.start_stop
+[       OK ] TimerTest.start_stop (1060 ms)
+[ RUN      ] TimerTest.sim_mode
+[       OK ] TimerTest.sim_mode (0 ms)
+[----------] 4 tests from TimerTest (4661 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 1 test suite ran. (4661 ms total)
+[  PASSED  ] 4 tests.
+[==========] Running 3 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 3 tests from TransportTest
+[ RUN      ] TransportTest.constructor
+[       OK ] TransportTest.constructor (0 ms)
+[ RUN      ] TransportTest.create_transmitter
+[       OK ] TransportTest.create_transmitter (0 ms)
+[ RUN      ] TransportTest.create_receiver
+[       OK ] TransportTest.create_receiver (1 ms)
+[----------] 3 tests from TransportTest (1 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test suite ran. (2 ms total)
+[  PASSED  ] 3 tests.
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from SchedulerClassicTest
+[ RUN      ] SchedulerClassicTest.classic
+[       OK ] SchedulerClassicTest.classic (22209 ms)
+[ RUN      ] SchedulerClassicTest.sched_classic
+[       OK ] SchedulerClassicTest.sched_classic (2 ms)
+[----------] 2 tests from SchedulerClassicTest (22212 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (22212 ms total)
+[  PASSED  ] 2 tests.
+Running main() from /home/zz/vcpkg/buildtrees/gtest/src/ase-1.11.0-7d339f16d4.clean/googletest/src/gtest_main.cc
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from SchedulerChoreoTest
+[ RUN      ] SchedulerChoreoTest.choreo
+[       OK ] SchedulerChoreoTest.choreo (2 ms)
+[ RUN      ] SchedulerChoreoTest.sched_choreo
+[       OK ] SchedulerChoreoTest.sched_choreo (166 ms)
+[----------] 2 tests from SchedulerChoreoTest (169 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (170 ms total)
+[  PASSED  ] 2 tests.

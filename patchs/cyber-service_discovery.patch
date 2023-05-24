@@ -1,0 +1,121 @@
+diff --git a/cyber/service_discovery/communication/participant_listener.cc b/cyber/service_discovery/communication/participant_listener.cc
+index ed5cc9438d..0a2f3ede53 100644
+--- a/cyber/service_discovery/communication/participant_listener.cc
++++ b/cyber/service_discovery/communication/participant_listener.cc
+@@ -32,7 +32,7 @@ ParticipantListener::~ParticipantListener() {
+ 
+ void ParticipantListener::onParticipantDiscovery(
+     eprosima::fastrtps::Participant* p,
+-    eprosima::fastrtps::ParticipantDiscoveryInfo info) {
++    eprosima::fastrtps::rtps::ParticipantDiscoveryInfo info) {
+   RETURN_IF_NULL(callback_);
+   (void)p;
+   std::lock_guard<std::mutex> lock(mutex_);
+diff --git a/cyber/service_discovery/communication/participant_listener.h b/cyber/service_discovery/communication/participant_listener.h
+index 91cc20d70b..58d3099543 100644
+--- a/cyber/service_discovery/communication/participant_listener.h
++++ b/cyber/service_discovery/communication/participant_listener.h
+@@ -24,6 +24,8 @@
+ #include "fastrtps/participant/Participant.h"
+ #include "fastrtps/participant/ParticipantListener.h"
+ 
++#include "fastrtps/rtps/participant/ParticipantDiscoveryInfo.h"
++
+ namespace apollo {
+ namespace cyber {
+ namespace service_discovery {
+@@ -31,14 +33,14 @@ namespace service_discovery {
+ class ParticipantListener : public eprosima::fastrtps::ParticipantListener {
+  public:
+   using ChangeFunc = std::function<void(
+-      const eprosima::fastrtps::ParticipantDiscoveryInfo& info)>;
++      const eprosima::fastrtps::rtps::ParticipantDiscoveryInfo& info)>;
+ 
+   explicit ParticipantListener(const ChangeFunc& callback);
+   virtual ~ParticipantListener();
+ 
+   virtual void onParticipantDiscovery(
+       eprosima::fastrtps::Participant* p,
+-      eprosima::fastrtps::ParticipantDiscoveryInfo info);
++      eprosima::fastrtps::rtps::ParticipantDiscoveryInfo info);
+ 
+  private:
+   ChangeFunc callback_;
+diff --git a/cyber/service_discovery/communication/subscriber_listener.cc b/cyber/service_discovery/communication/subscriber_listener.cc
+index 1501b5ab88..0ab4d7807d 100644
+--- a/cyber/service_discovery/communication/subscriber_listener.cc
++++ b/cyber/service_discovery/communication/subscriber_listener.cc
+@@ -39,14 +39,14 @@ void SubscriberListener::onNewDataMessage(eprosima::fastrtps::Subscriber* sub) {
+   eprosima::fastrtps::SampleInfo_t m_info;
+   cyber::transport::UnderlayMessage m;
+   RETURN_IF(!sub->takeNextData(reinterpret_cast<void*>(&m), &m_info));
+-  RETURN_IF(m_info.sampleKind != eprosima::fastrtps::ALIVE);
++  RETURN_IF(m_info.sampleKind != eprosima::fastrtps::rtps::ALIVE);
+ 
+   callback_(m.data());
+ }
+ 
+ void SubscriberListener::onSubscriptionMatched(
+     eprosima::fastrtps::Subscriber* sub,
+-    eprosima::fastrtps::MatchingInfo& info) {
++    eprosima::fastrtps::rtps::MatchingInfo& info) {
+   (void)sub;
+   (void)info;
+ }
+diff --git a/cyber/service_discovery/communication/subscriber_listener.h b/cyber/service_discovery/communication/subscriber_listener.h
+index 1c63c1f6a0..1527c74884 100644
+--- a/cyber/service_discovery/communication/subscriber_listener.h
++++ b/cyber/service_discovery/communication/subscriber_listener.h
+@@ -39,7 +39,7 @@ class SubscriberListener : public eprosima::fastrtps::SubscriberListener {
+ 
+   void onNewDataMessage(eprosima::fastrtps::Subscriber* sub);
+   void onSubscriptionMatched(eprosima::fastrtps::Subscriber* sub,
+-                             eprosima::fastrtps::MatchingInfo& info);  // NOLINT
++                             eprosima::fastrtps::rtps::MatchingInfo& info);  // NOLINT
+ 
+  private:
+   NewMsgCallback callback_;
+diff --git a/cyber/service_discovery/topology_manager.cc b/cyber/service_discovery/topology_manager.cc
+index 419f9bdb17..f3d3cc0b2c 100644
+--- a/cyber/service_discovery/topology_manager.cc
++++ b/cyber/service_discovery/topology_manager.cc
+@@ -136,20 +136,20 @@ void TopologyManager::OnParticipantChange(const PartInfo& info) {
+ }
+ 
+ bool TopologyManager::Convert(const PartInfo& info, ChangeMsg* msg) {
+-  auto guid = info.rtps.m_guid;
+-  auto status = info.rtps.m_status;
++  auto guid = info.info.m_guid;
++  auto status = info.status;
+   std::string participant_name("");
+   OperateType opt_type = OperateType::OPT_JOIN;
+ 
+   switch (status) {
+-    case eprosima::fastrtps::rtps::DISCOVERY_STATUS::DISCOVERED_RTPSPARTICIPANT:
+-      participant_name = info.rtps.m_RTPSParticipantName;
++    case eprosima::fastrtps::rtps::ParticipantDiscoveryInfo::DISCOVERY_STATUS::DISCOVERED_PARTICIPANT:
++      participant_name = info.info.m_participantName;
+       participant_names_[guid] = participant_name;
+       opt_type = OperateType::OPT_JOIN;
+       break;
+ 
+-    case eprosima::fastrtps::rtps::DISCOVERY_STATUS::REMOVED_RTPSPARTICIPANT:
+-    case eprosima::fastrtps::rtps::DISCOVERY_STATUS::DROPPED_RTPSPARTICIPANT:
++    case eprosima::fastrtps::rtps::ParticipantDiscoveryInfo::DISCOVERY_STATUS::REMOVED_PARTICIPANT:
++    case eprosima::fastrtps::rtps::ParticipantDiscoveryInfo::DISCOVERY_STATUS::DROPPED_PARTICIPANT:
+       if (participant_names_.find(guid) != participant_names_.end()) {
+         participant_name = participant_names_[guid];
+         participant_names_.erase(guid);
+diff --git a/cyber/service_discovery/topology_manager.h b/cyber/service_discovery/topology_manager.h
+index 44b47b50c7..288a2abc70 100644
+--- a/cyber/service_discovery/topology_manager.h
++++ b/cyber/service_discovery/topology_manager.h
+@@ -68,7 +68,7 @@ class TopologyManager {
+   using ChangeConnection = base::Connection<const ChangeMsg&>;
+   using PartNameContainer =
+       std::map<eprosima::fastrtps::rtps::GUID_t, std::string>;
+-  using PartInfo = eprosima::fastrtps::ParticipantDiscoveryInfo;
++  using PartInfo = eprosima::fastrtps::rtps::ParticipantDiscoveryInfo;
+ 
+   virtual ~TopologyManager();
+ 

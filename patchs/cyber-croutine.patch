@@ -1,0 +1,13 @@
+diff --git a/cyber/croutine/croutine_test.cc b/cyber/croutine/croutine_test.cc
+index 749a6cdf89..08d73fd2ff 100644
+--- a/cyber/croutine/croutine_test.cc
++++ b/cyber/croutine/croutine_test.cc
+@@ -30,7 +30,7 @@ void function() { CRoutine::Yield(RoutineState::IO_WAIT); }
+ TEST(Croutine, croutinetest) {
+   apollo::cyber::Init("croutine_test");
+   std::shared_ptr<CRoutine> cr = std::make_shared<CRoutine>(function);
+-  auto id = GlobalData::RegisterTaskName("croutine");
++  auto id = common::GlobalData::RegisterTaskName("croutine");
+   cr->set_id(id);
+   cr->set_name("croutine");
+   cr->set_processor_id(0);

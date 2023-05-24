@@ -1,0 +1,12 @@
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from SchedulerClassicTest
+[ RUN      ] SchedulerClassicTest.classic
+[       OK ] SchedulerClassicTest.classic (22213 ms)
+[ RUN      ] SchedulerClassicTest.sched_classic
+[       OK ] SchedulerClassicTest.sched_classic (1001 ms)
+[----------] 2 tests from SchedulerClassicTest (23214 ms total)
+
+[----------] Global test environment tear-down
+[==========] 2 tests from 1 test suite ran. (23215 ms total)
+[  PASSED  ] 2 tests.

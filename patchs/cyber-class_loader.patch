@@ -1,0 +1,45 @@
+diff --git a/cyber/class_loader/class_loader_test.cc b/cyber/class_loader/class_loader_test.cc
+index d7d36cc382..a758469a3c 100644
+--- a/cyber/class_loader/class_loader_test.cc
++++ b/cyber/class_loader/class_loader_test.cc
+@@ -24,12 +24,12 @@
+ 
+ #include "cyber/class_loader/class_loader_manager.h"
+ #include "cyber/class_loader/test/base.h"
+-#include "cyber/cyber.h"
++// #include "cyber/cyber.h"
+ 
+ const char LIBRARY_1[] =
+-    "/apollo/bazel-bin/cyber/class_loader/test/libplugin1.so";
++    "/home/zz/apollo/cmake/build/cyber/libplugin1.so";
+ const char LIBRARY_2[] =
+-    "/apollo/bazel-bin/cyber/class_loader/test/libplugin2.so";
++    "/home/zz/apollo/cmake/build/cyber/libplugin2.so";
+ using apollo::cyber::class_loader::ClassLoader;
+ using apollo::cyber::class_loader::ClassLoaderManager;
+ using apollo::cyber::class_loader::utility::IsLibraryLoadedByAnybody;
+@@ -183,9 +183,9 @@ TEST(ClassLoaderTest, util_test) {
+ }
+ 
+ int main(int argc, char** argv) {
+-  apollo::cyber::Init(argv[0]);
++  // apollo::cyber::Init(argv[0]);
+   testing::InitGoogleTest(&argc, argv);
+   const int output = RUN_ALL_TESTS();
+-  google::protobuf::ShutdownProtobufLibrary();
++  // google::protobuf::ShutdownProtobufLibrary();
+   return output;
+ }
+diff --git a/cyber/class_loader/shared_library/shared_library_test.cc b/cyber/class_loader/shared_library/shared_library_test.cc
+index d44e750060..05828ab464 100644
+--- a/cyber/class_loader/shared_library/shared_library_test.cc
++++ b/cyber/class_loader/shared_library/shared_library_test.cc
+@@ -23,7 +23,7 @@
+ namespace {
+ 
+ const std::string& SAMPLE_LIB =
+-    "/apollo/bazel-bin/cyber/class_loader/shared_library/libsample.so";
++    "/home/zz/apollo/cmake/build/cyber/libcyber_shared_library_sample.so";
+ constexpr double epsilon = 1.0e-8;
+ 
+ }  // namespace

@@ -1,0 +1,13 @@
+diff --git a/cyber/logger/logger_util_test.cc b/cyber/logger/logger_util_test.cc
+index b404473025..dc29c14db9 100644
+--- a/cyber/logger/logger_util_test.cc
++++ b/cyber/logger/logger_util_test.cc
+@@ -64,7 +64,7 @@ TEST(LoggerUtilTest, FindModuleName) {
+   log_message.append(RIGHT_BRACKET);
+   log_message.append("123");
+   FindModuleName(&log_message, &module_name);
+-  EXPECT_EQ("logger_util_test_" + std::to_string(GetMainThreadPid()),
++  EXPECT_EQ("cyber_logger_test_" + std::to_string(GetMainThreadPid()),
+             module_name);
+ }
+ 
